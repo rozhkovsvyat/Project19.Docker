@@ -1,1 +1,1 @@
-# Project 19 : Docker & NGINX files
+# Project 19 : Docker files
