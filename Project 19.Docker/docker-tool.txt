@@ -1,0 +1,38 @@
+FILES:
+wget -O docker-compose.yml https://bit.ly/docker-compose-yml
+wget -O nginx.conf https://bit.ly/nginx-configuration
+
+BUILD:
+docker build --tag rozhkovsvyat/project19:api .
+docker build --tag rozhkovsvyat/project19:web .
+
+PUSH:
+docker push rozhkovsvyat/project19:web
+docker push rozhkovsvyat/project19:api
+
+COMPOSE:
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+docker rmi $(docker images -a -q)
+docker volume rm $(docker volume ls -q)
+docker network rm $(docker network ls -q)
+docker-compose up -d
+
+CONTAINER:
+docker container ls
+docker container ls -a
+docker stop ID_or_Name
+docker rm ID_or_Name
+docker ps -a -f status=exited
+docker rm $(docker ps -a -f status=exited -q)
+
+IMAGES:
+docker images ls -a
+docker images ls -a
+docker rmi Image
+docker rmi $(docker images -a -q)
+
+VOLUMES:
+docker volume ls
+docker volume rm volume_name volume_name
+docker volume prune
