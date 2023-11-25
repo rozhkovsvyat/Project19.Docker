@@ -1,0 +1,226 @@
+version: '3.8'
+name: p19
+
+services:
+  proxy:
+    image: nginx:latest
+    container_name: proxy
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ${APPDATA}/ASP.NET/Https/mkcert/fullchain.pem:/etc/nginx/fullchain.pem
+      - ${APPDATA}/ASP.NET/Https/mkcert/privkey.pem:/etc/nginx/privkey.pem
+    ports:
+      - 80:80
+      - 443:443
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 1G
+    networks:
+      - nw
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "netapp"
+      MONGO_INITDB_ROOT_PASSWORD: "qaz123WSX!="
+    volumes:
+      - v_mongo:/data/db
+      - v_mongo:/data/configdb
+    healthcheck:
+      test: echo 'db.runCommand({serverStatus:1}).ok' | mongosh admin -u $$MONGO_INITDB_ROOT_USERNAME -p $$MONGO_INITDB_ROOT_PASSWORD --quiet | grep 1
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2G
+    networks:
+      - nw
+
+  mongo-express:
+    image: mongo-express:latest
+    container_name: mongoxp
+    environment:
+      ME_CONFIG_MONGODB_SERVER: "mongo"
+      ME_CONFIG_MONGODB_PORT: "27017"
+      ME_CONFIG_MONGODB_ENABLE_ADMIN: "true"
+      ME_CONFIG_MONGODB_AUTH_DATABASE: "admin"
+      ME_CONFIG_MONGODB_AUTH_USERNAME: "netapp"
+      ME_CONFIG_MONGODB_AUTH_PASSWORD: "qaz123WSX!="
+      ME_CONFIG_BASICAUTH_USERNAME: "netapp"
+      ME_CONFIG_BASICAUTH_PASSWORD: "qaz123WSX!="
+      ME_CONFIG_HEALTH_CHECK_PATH: "/status"
+    volumes:
+      - v_mongoxp:/var/lib/mongoxp
+    depends_on:
+      - mongo
+      - proxy
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 1G
+    networks:
+      - nw
+
+  pg:
+    image: postgres:16.0-alpine3.18
+    container_name: pg
+    command:
+      - "postgres"
+      - "-c"
+      - "max_connections=10"
+      - "-c"
+      - "shared_buffers=256MB"
+      - "-c"
+      - "effective_cache_size=1GB"
+      - "-c"
+      - "work_mem=16MB"
+      - "-c"
+      - "maintenance_work_mem=256MB"
+      - "-c"
+      - "random_page_cost=1.1"
+      - "-c"
+      - "temp_file_limit=1GB"
+      - "-c"
+      - "log_min_duration_statement=200ms"
+      - "-c"
+      - "idle_in_transaction_session_timeout=10s"
+      - "-c"
+      - "lock_timeout=1s"
+      - "-c"
+      - "statement_timeout=60s"
+      - "-c"
+      - "shared_preload_libraries=pg_stat_statements"
+      - "-c"
+      - "pg_stat_statements.max=10000"
+      - "-c"
+      - "pg_stat_statements.track=all"
+    environment:
+      POSTGRES_DB: "project_19"
+      POSTGRES_USER: "netapp"
+      POSTGRES_PASSWORD: "qaz123WSX!="
+      PGDATABASE: "project_19"
+      PGUSER: "netapp"
+      PGPASSWORD: "qaz123WSX!="
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      - v_pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready", "-U $$POSTGRES_USER", "-d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2G
+    networks:
+      - nw
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "netapphandler@gmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "qaz123WSX!="
+      PGADMIN_CONFIG_SERVER_MODE: "True"
+    volumes:
+      - v_pgadmin:/var/lib/pgadmin
+    depends_on:
+      - pg
+      - proxy
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://pgadmin:80/misc/ping || exit 1
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 90s
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 1G
+    networks:
+      - nw
+
+  api:
+    image: rozhkovsvyat/project19:api
+    container_name: p19api
+    environment:
+      DB_CONSTR: "Host=pg;Port=5432;Database=project_19;Username=netapp;Password=qaz123WSX!="
+      IDENTITY_CONSTR: "mongodb://netapp:qaz123WSX!=@mongo:27017"
+      JWT_ISSUER": ""
+      JWT_AUDIENCE": ""
+      JWT_KEY": ""
+    volumes:
+      - v_api:/var/lib/p19api
+    depends_on:
+      - pg
+      - mongo
+      - proxy
+    healthcheck:
+      test: curl -f http://p19api:80/healthz || exit 1
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 60s
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1G
+    networks:
+      - nw
+
+  web:
+    image: rozhkovsvyat/project19:web
+    container_name: p19web
+    environment:
+      API_CONTACTS_URL: "http://p19api:80/contacts"
+      API_IDENTITY_URL: "http://p19api:80/identity"
+    volumes:
+      - v_web:/var/lib/p19web
+    depends_on:
+      - api
+      - proxy
+    healthcheck:
+      test: curl -f http://p19web:80/healthz || exit 1
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 90s
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1G
+    networks:
+      - nw
+
+volumes:
+  v_mongo:
+  v_mongoxp:
+  v_pgadmin:
+  v_pg:
+  v_api:
+  v_web:
+
+networks:
+  nw:
+    driver: bridge
