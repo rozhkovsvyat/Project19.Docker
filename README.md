@@ -32,9 +32,11 @@
 
 ### CRON
 
-Каждое утро обновляет образы и пересобирает контейнеры, откатывая книгу в исходное состояние
+Обновляет образы и пересобирает контейнеры каждое утро, откатывая книгу в исходное состояние
 
 ---
+
+### RELEASE
 
 Доступ к сервису: **[efcore.ru](https://efcore.ru)** / **[api.efcore.ru](https://api.efcore.ru/contacts)** 
 
@@ -42,6 +44,8 @@
 
 ---
 
-Доступ к бд: **[pg.efcore.ru](https://pg.efcore.ru)** / **[mongo.efcore.ru](https://mongo.efcore.ru/contacts)** 
+Бд: **[pg.efcore.ru](https://pg.efcore.ru)** / **[mongo.efcore.ru](https://mongo.efcore.ru/contacts)** 
 
-:bust_in_silhouette: **netapp / netapphandler@gmail.com** :key: **qaz123WSX!=**
+:mailbox: netapphandler@gmail.com
+
+:bust_in_silhouette: netapp :key: qaz123WSX!=
