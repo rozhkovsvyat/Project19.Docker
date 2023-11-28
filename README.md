@@ -15,3 +15,12 @@
 * **OS** Ubuntu 22.04
 * **CPU** 1 / **RAM** 4Gb / **NVMe** 15Gb
 * **IP** 185.154.194.115
+
+---
+
+### ACCESS
+
+* **Web** [efcore.ru](https://efcore.ru)
+* **API** [api.efcore.ru](https://api.efcore.ru/contacts)
+* **Mongo** [mongo.efcore.ru](https://mongo.efcore.ru)
+* **PostgreSQL** [pg.efcore.ru](https://pg.efcore.ru)
