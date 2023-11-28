@@ -10,7 +10,7 @@
 
 Конфигурация: **OS** Ubuntu 22.04 / **CPU** 1 / **RAM** 4Gb / **NVMe** 15Gb
 
-Книга доступна по адресу [efcore.ru](https://efcore.ru) 
+Книжка доступна по адресу [efcore.ru](https://efcore.ru) 
 
 ---
 
