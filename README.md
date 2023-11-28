@@ -12,14 +12,6 @@
 
 ---
 
-### RELEASE
-
-Доступ к сервису: [efcore.ru](https://efcore.ru) / [api.efcore.ru](https://api.efcore.ru/contacts) 
-
-> :busts_in_silhouette: **admin**<sub>default</sub> :key: **qaz123WSX!=**<sub>QWE123asd_</sub>
-
----
-
 ### CONTAINERS
 
 * **База идентификации с оболочкой** / [MongoDB](https://hub.docker.com/_/mongo) + [Mongo-Express](https://hub.docker.com/_/mongo-express)
@@ -30,9 +22,6 @@
 
 ---
 
-### USERS
+Доступ к сервису: **[efcore.ru](https://efcore.ru)** / [api.efcore.ru](https://api.efcore.ru/contacts)
 
-* **[efcore.ru](https://efcore.ru)** + **[api.efcore.ru](https://api.efcore.ru/contacts)** -- **admin** qaz123WSX!= / **default** QWE123asd_
-* **[pg.efcore.ru](https://pg.efcore.ru)** -- **netapphandler@gmail.com** netapp qaz123WSX!=
-* **[mongo.efcore.ru](https://mongo.efcore.ru)** -- **netapp qaz123WSX!=**
-
+:busts_in_silhouette: **admin**<sub>default</sub> :key: **qaz123WSX!=**<sub>QWE123asd_</sub>
