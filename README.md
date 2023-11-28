@@ -8,6 +8,13 @@
 
 > :eye_speech_bubble: https://hub.docker.com/repository/docker/rozhkovsvyat/project19
 
+Книга доступна по адресу [efcore.ru](https://efcore.ru)
+
+Поддомены:
+* [api.efcore.ru](https://api.efcore.ru/contacts)
+* [mongo.efcore.ru](https://mongo.efcore.ru)
+* [pg.efcore.ru](https://pg.efcore.ru)
+
 ---
 
 ### SERVER
@@ -25,10 +32,3 @@
 * **Web-клиент телефонной книги** / [Phonebook.Web](rozhkovsvyat/project19:web)
 * **API телефонной книги** / [Phonebook.API](rozhkovsvyat/project19:api)
 * **Прокси** / [Nginx](https://hub.docker.com/_/nginx)
-
----
-
-* **Web** [efcore.ru](https://efcore.ru)
-* **API** [api.efcore.ru](https://api.efcore.ru/contacts)
-* **Mongo** [mongo.efcore.ru](https://mongo.efcore.ru)
-* **PostgreSQL** [pg.efcore.ru](https://pg.efcore.ru)
