@@ -8,7 +8,7 @@
 
 > :eye_speech_bubble: https://hub.docker.com/repository/docker/rozhkovsvyat/project19
 
-Конфигурация: **OS** Ubuntu 22.04 / **CPU** 1 / **RAM** 4Gb / **NVMe** 15Gb
+Сервер: **OS** Ubuntu 22.04 / **CPU** 1 / **RAM** 4Gb / **NVMe** 15Gb
 
 Книга доступна по адресу [efcore.ru](https://efcore.ru) 
 
