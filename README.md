@@ -24,7 +24,7 @@
 ### SSL
 
 * Самозаверяемый сертификат для localhost присутствует в проекте [Web](https://github.com/rozhkovsvyat/Project19.Web)
-* В релиз-версии используется сертификат от [Let's Encrypt](https://letsencrypt.org/)
+* В релиз-версии используется сертификат, полученный у [Let's Encrypt](https://letsencrypt.org/)
 
 ---
 
