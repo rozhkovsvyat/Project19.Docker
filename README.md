@@ -9,10 +9,10 @@
 > :eye_speech_bubble: https://hub.docker.com/repository/docker/rozhkovsvyat/project19
 
 Используемые образы:
-* **База данных идентификации** / [MongoDB](https://hub.docker.com/_/mongo) + [Mongo-Express](https://hub.docker.com/_/mongo-express)
-* **База данных контактов** / [PostgreSQL](https://hub.docker.com/_/postgres) + [PgAdmin](https://hub.docker.com/r/dpage/pgadmin4)
-* **Web-клиент телефонной книги** / [Phonebook.Web](rozhkovsvyat/project19:web)
-* **API телефонной книги** / [Phonebook.API](rozhkovsvyat/project19:api)
+* **База идентификации** / [MongoDB](https://hub.docker.com/_/mongo) + [Mongo-Express](https://hub.docker.com/_/mongo-express)
+* **База контактов** / [PostgreSQL](https://hub.docker.com/_/postgres) + [PgAdmin](https://hub.docker.com/r/dpage/pgadmin4)
+* **Web-клиент книги** / [Phonebook.Web](rozhkovsvyat/project19:web)
+* **API книги** / [Phonebook.API](rozhkovsvyat/project19:api)
 * **Прокси** / [Nginx](https://hub.docker.com/_/nginx)
 
 ---
