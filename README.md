@@ -16,10 +16,6 @@
 
 > :busts_in_silhouette: **admin**<sub>default</sub> :key: **qaz123WSX!=**<sub>QWE123asd_</sub>
 
-Доступ к базам: [mongo.efcore.ru](https://mongo.efcore.ru) / [pg.efcore.ru](https://pg.efcore.ru)
-
-> :busts_in_silhouette: **admin**<sub>default</sub> :key: **qaz123WSX!=**<sub>QWE123asd_</sub>
-
 ---
 
 ### CONTAINERS
