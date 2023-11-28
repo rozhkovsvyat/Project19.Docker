@@ -18,7 +18,7 @@
 * **База контактов с оболочкой** / [PostgreSQL](https://hub.docker.com/_/postgres) + [PgAdmin](https://hub.docker.com/r/dpage/pgadmin4)
 * **Web-клиент книги** / [Phonebook.Web](rozhkovsvyat/project19:web)
 * **API книги** / [Phonebook.API](rozhkovsvyat/project19:api)
-* **Прокси** / [Nginx](https://hub.docker.com/_/nginx)
+* **Реверс-прокси** / [Nginx](https://hub.docker.com/_/nginx)
 
 ---
 
