@@ -14,7 +14,7 @@
 
 ### RELEASE
 
-Доступ к сервису книги: [efcore.ru](https://efcore.ru) / [api.efcore.ru](https://api.efcore.ru/contacts) 
+Доступ к сервису: [efcore.ru](https://efcore.ru) / [api.efcore.ru](https://api.efcore.ru/contacts) 
 
 > :busts_in_silhouette: **admin**<sub>default</sub> :key: **qaz123WSX!=**<sub>QWE123asd_</sub>
 
