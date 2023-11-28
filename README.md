@@ -36,6 +36,12 @@
 
 ---
 
-Доступ к сервису: **[efcore.ru](https://efcore.ru)** / **[api.efcore.ru](https://api.efcore.ru/contacts)**
+Доступ к сервису: **[efcore.ru](https://efcore.ru)** / **[api.efcore.ru](https://api.efcore.ru/contacts)** 
 
 :busts_in_silhouette: **admin**<sub>default</sub> :key: **qaz123WSX!=**<sub>QWE123asd_</sub>
+
+---
+
+Доступ к бд: **[pg.efcore.ru](https://pg.efcore.ru)** / **[mongo.efcore.ru](https://mongo.efcore.ru/contacts)** 
+
+:bust_in_silhouette: **netapp / netapphandler@gmail.com** :key: **qaz123WSX!=**
