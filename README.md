@@ -12,9 +12,6 @@
 
 Книга доступна по адресу [efcore.ru](https://efcore.ru) 
 
-* admin qaz123WSX!=
-* default QWE123asd_
-
 ---
 
 ### CONTAINERS
