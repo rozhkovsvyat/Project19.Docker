@@ -36,9 +36,9 @@
 
 Доступ к сервису: **[efcore.ru](https://efcore.ru)** / **[api.efcore.ru](https://api.efcore.ru/contacts)** 
 
-Скачать клиент: **[windows](https://hub.efcore.ru/PhonebookSetup.zip)**
-
 :busts_in_silhouette: **admin**<sub>default</sub> :key: **qaz123WSX!=**<sub>QWE123asd_</sub>
+
+**[Скачать клиент (windows)](https://hub.efcore.ru/PhonebookSetup.zip)**
 
 ---
 
